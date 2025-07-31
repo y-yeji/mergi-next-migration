@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@import "./theme.css";
+@import "./typography.css";
+@import "./fonts.css";
+
+:root,
+:host {
+  --font-sans: "Pretendard";
+}
+
+@layer base {
+  html,
+  body {
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+      Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+      "Noto Sans KR", "Malgun Gothic", sans-serif;
+    font-synthesis: none;
+    background-color: #fff;
+    color: #3b3b3b;
+  }
+
+  *:focus {
+    outline: none;
+  }
+}
