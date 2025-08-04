@@ -21,9 +21,9 @@ const Postcard = () => {
       <div className="flex justify-between mb-[15px]">
         <span className="flex items-center gap-[10px]">
           <span>
-            <Avatar className="group size-[40px] cursor-pointer">
+            <Avatar className="group size-[33px] cursor-pointer">
               <AvatarImage
-                src="default-user-image.svg"
+                src="/images/default-user-image.svg"
                 className="object-cover"
                 alt="유저프로필이미지"
               />

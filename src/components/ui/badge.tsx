@@ -19,6 +19,14 @@ const badgeVariants = cva(
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         position:
           "w-full px-[10px] py-[3px] caption-b rounded-md text-primary-2 bg-gray-5",
+        success:
+          "max-w-full h-6 py-[3px] px-[10px] border-[#4AB556] rounded-[50px] bg-[#F2FFF3] text-[#4AB556] caption-b",
+        warning:
+          "max-w-full h-6 py-[3px] px-[10px] border-[#FFB908] rounded-[50px] bg-[#FFFAEE] text-[#FFB908] caption-b",
+        danger:
+          "max-w-full h-6 py-[3px] px-[10px] border-[#FF4242] rounded-[50px] bg-[#FFFAEE] text-[#FF4242] caption-b",
+
+        done: "max-w-full h-6 py-[3px] px-[10px] border-gray-50 rounded-[50px] bg-gray-5 text-gray-50 caption-b",
       },
     },
     defaultVariants: {
