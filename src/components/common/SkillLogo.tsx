@@ -7,7 +7,12 @@ interface SkillLogoProps {
 
 const SkillLogo = ({ name, skill }: SkillLogoProps) => {
   return (
-    <Image src={`/skills/${skill}.png`} alt={name} width={28} height={28} />
+    <Image
+      src={`/images/skills/${skill}.png`}
+      alt={name}
+      width={28}
+      height={28}
+    />
   );
 };
 

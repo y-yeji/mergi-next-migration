@@ -13,11 +13,16 @@ import { cn } from "@/lib/utils";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-20 w-full h-[80px] py-[21px] px-10">
+    <header className="fixed top-0 left-0 z-20 w-full h-[80px] py-[21px] px-10 bg-white">
       <nav className="max-w-[1200px] mx-auto flex items-center justify-between">
         <div className="flex flex-1 mr-[250px]">
           <Link href="/" className="px-[22px] mr-[100px]">
-            <Image src="logo.svg" alt="mergi 로고" width={96} height={36} />
+            <Image
+              src="/images/logo.svg"
+              alt="mergi 로고"
+              width={96}
+              height={36}
+            />
           </Link>
           <ul className="flex flex-1 items-center justify-between h3-b">
             <li>
@@ -69,7 +74,7 @@ const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Avatar className="group size-[40px] cursor-pointer">
                     <AvatarImage
-                      src="default-user-image.svg"
+                      src="/images/default-user-image.svg"
                       className="object-cover"
                     />
                   </Avatar>
