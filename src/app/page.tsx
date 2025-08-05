@@ -4,7 +4,7 @@ import PostcardSectionList from "@/components/main/PostcardSectionList";
 
 export default function Home() {
   return (
-    <div className="mt-30">
+    <div className="max-w-[1200px] mx-auto mt-30">
       <section className="mb-20">
         <div className="mb-5">
           <Image
