@@ -15,11 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="w-full max-w-[1200px] mx-auto">
-          <Header />
-          {children}
-        </div>
+      <body className="w-full">
+        <Header />
+        {children}
         <Footer />
       </body>
     </html>

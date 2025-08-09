@@ -33,7 +33,7 @@ export const SKILLS = [
   { name: "Productboard", skill: "productboard" },
   { name: "Python", skill: "python" },
   { name: "React", skill: "react" },
-  { name: "Reactnative", skill: "reactnative" },
+  { name: "React_native", skill: "react_native" },
   { name: "Spring", skill: "spring" },
   { name: "Svelte", skill: "svelte" },
   { name: "Swift", skill: "swift" },
@@ -41,6 +41,6 @@ export const SKILLS = [
   { name: "Trello", skill: "trello" },
   { name: "Typescript", skill: "typescript" },
   { name: "Vue", skill: "vue" },
-  { name: "Xd", skill: "xd" },
+  { name: "Adobe_xd", skill: "adobe_xd" },
   { name: "Zeplin", skill: "zeplin" },
 ];
