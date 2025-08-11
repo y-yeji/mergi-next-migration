@@ -102,11 +102,11 @@ const SkillsFilterSelectbox = ({
                     <SkillBadge
                       name={skill}
                       skill={skill}
-                      className={
+                      className={`hover:border-primary-3 hover:text-primary-3 cursor-pointer ${
                         isSelected
                           ? "border border-primary-3 text-primary-3 bg-secondary-2"
                           : "bg-white"
-                      }
+                      }`}
                     />
                   </button>
                 </li>
