@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-type SelectVariants = "short";
+type SelectVariants = "short" | "application";
 
 interface FilterSelectboxProps {
   filterTitle: string;

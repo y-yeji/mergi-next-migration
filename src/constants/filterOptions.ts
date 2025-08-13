@@ -44,3 +44,10 @@ export const POSOITION_SKILLS_FILTER_GROUPS = {
   ],
   [POSITION[8]]: POSITION_SKILLS[POSITION[8]],
 };
+
+export const APPLICATIONS_STATUS = [
+  "전체",
+  "수락 완료",
+  "수락 대기중",
+  "모집 마감",
+];

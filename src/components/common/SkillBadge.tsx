@@ -27,7 +27,7 @@ const SkillBadge = ({ name, skill, className = "" }: SkillBadgeProps) => {
   const imageName = getSkillImageName(name, skill);
   return (
     <div
-      className={`flex items-center gap-[6px] w-full h-9 py-[6px] pl-[6px] pr-[10px] caption-r text-gray-80 border border-gray-30 rounded-[50px] hover:border-primary-3 hover:text-primary-3 ${className}`}
+      className={`flex items-center gap-[6px] max-w-full h-9 py-[6px] pl-[6px] pr-[10px] caption-r text-gray-80 border border-gray-30 rounded-[50px] ${className}`}
     >
       <Image
         src={`/images/skills/${imageName}.png`}
