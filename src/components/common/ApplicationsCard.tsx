@@ -20,6 +20,7 @@ interface ApplicationsCardProps {
   applicationsCardStatusText: string;
   skills: string[];
   positions: string[];
+  showCancelModal?: boolean;
 }
 
 const ApplicationsCard = ({
@@ -29,6 +30,7 @@ const ApplicationsCard = ({
   applicationsCardStatusText,
   skills,
   positions,
+  showCancelModal = true,
 }: ApplicationsCardProps) => {
   const [isCancel, setIsCancel] = useState(true);
 
@@ -63,7 +65,7 @@ const ApplicationsCard = ({
             마감일 | {formatDate(deadline)}
           </span>
         </div>
-        {applicationsCardStatus !== "success" && (
+        {showCancelModal && applicationsCardStatus !== "success" && (
           <CommonModal
             disabled={applicationsCardStatus === "done"}
             modalButton={
