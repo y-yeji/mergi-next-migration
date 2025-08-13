@@ -1,12 +1,10 @@
 import ApplicationsCard from "@/components/common/ApplicationsCard";
 import FilterSelectbox from "@/components/common/FilterSelectbox";
-import { Button } from "@/components/ui/button";
 import { APPLICATIONS_STATUS } from "@/constants/filterOptions";
-import Link from "next/link";
 
 type CardStatus = "success" | "warning" | "danger" | "done";
 
-interface MyApplication {
+interface UserApplication {
   id: number;
   title: string;
   deadline: number;
@@ -16,7 +14,7 @@ interface MyApplication {
   positions: string[];
 }
 
-const myApplicationsData: MyApplication[] = [
+const UserApplicationsData: UserApplication[] = [
   {
     id: 1,
     title: "멘토링 관련 프로젝트 팀원을 모집합니다!!",
@@ -46,8 +44,8 @@ const myApplicationsData: MyApplication[] = [
   },
 ];
 
-const MyApplicationsTab = () => {
-  const hasApplicationPost = myApplicationsData.length > 0;
+const UserApplicationsTab = () => {
+  const hasApplicationPost = UserApplicationsData.length > 0;
   return (
     <div>
       <div className={hasApplicationPost ? "flex justify-end mb-5" : "hidden"}>
@@ -59,7 +57,7 @@ const MyApplicationsTab = () => {
       </div>
       {hasApplicationPost ? (
         <section className="flex flex-wrap justify-between gap-7">
-          {myApplicationsData.map((application) => (
+          {UserApplicationsData.map((application) => (
             <ApplicationsCard
               key={application.id}
               title={application.title}
@@ -70,7 +68,7 @@ const MyApplicationsTab = () => {
               }
               skills={application.skills}
               positions={application.positions}
-              showCancelModal={true}
+              showCancelModal={false}
             />
           ))}
         </section>
@@ -80,16 +78,10 @@ const MyApplicationsTab = () => {
             <h3 className="h3-b text-center text-primary-4 mb-5">
               아직 신청한 글이 없습니다.
             </h3>
-            <Link href="/">
-              <Button className="w-[177px] h-[41px]  py-[8.5px] px-[25px] text-center rounded-lg body-large-m text-white bg-primary-3 hover:bg-primary-3  cursor-pointer">
-                신청하러 가볼까요?
-              </Button>
-            </Link>
           </div>
         </section>
       )}
     </div>
   );
 };
-
-export default MyApplicationsTab;
+export default UserApplicationsTab;
