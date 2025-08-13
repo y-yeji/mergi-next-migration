@@ -11,17 +11,22 @@ import {
 import { Button } from "../ui/button";
 
 interface ModalProps {
+  modalButton?: React.ReactNode;
   modalTitle: string;
   actionButtonText: string;
+  disabled?: boolean;
 }
 
-const CommonModal = ({ modalTitle, actionButtonText }: ModalProps) => {
+const CommonModal = ({
+  modalButton,
+  modalTitle,
+  actionButtonText,
+  disabled,
+}: ModalProps) => {
   return (
-    <div className="h-[50vh] flex justify-center items-center z-50">
+    <div>
       <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button variant="outline">공통모달</Button>
-        </AlertDialogTrigger>
+        <AlertDialogTrigger asChild>{modalButton}</AlertDialogTrigger>
         <AlertDialogContent size="common">
           <AlertDialogHeader>
             <AlertDialogTitle className="h4-b text-gray-70 text-center">

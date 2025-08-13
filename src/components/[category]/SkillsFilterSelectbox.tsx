@@ -46,7 +46,7 @@ const SkillsFilterSelectbox = ({
       {/* 토글 버튼 */}
       <button
         type="button"
-        className={`flex justify-between items-center w-[140px] h-9 py-1 pl-3 pr-[6px] mb-1 body-r rounded-lg input-shadow cursor-pointer
+        className={`flex justify-between items-center w-[140px] h-8 py-1 pl-3 pr-[6px] mb-1 body-r rounded-lg input-shadow cursor-pointer
           ${
             selectedSkills.length > 0
               ? "text-primary-3 border border-primary-3 bg-white"

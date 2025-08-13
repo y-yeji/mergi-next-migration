@@ -5,8 +5,15 @@ import { Badge } from "../ui/badge";
 import { SKILLS } from "@/constants/skills";
 import SkillLogo from "./SkillLogo";
 import { POSITION } from "@/constants/position";
+import { formatDate } from "@/lib/formatDate";
 
-const Postcard = () => {
+interface PostcardProps {
+  description: string;
+  usernickName: string;
+  created_at: number;
+}
+
+const Postcard = ({ description, usernickName, created_at }: PostcardProps) => {
   const MAX_VISIBLE_SKILLS = 5;
   const MAX_VISIBLE_POSITION = 2;
 
@@ -29,7 +36,7 @@ const Postcard = () => {
               />
             </Avatar>
           </span>
-          <span className="body-b">파파고</span>
+          <span className="body-b">{usernickName}</span>
         </span>
         <span className="flex items-center gap-[6px]">
           <span>
@@ -42,10 +49,7 @@ const Postcard = () => {
       </div>
       <div>
         <div className="mb-4">
-          <p className="body-large-r line-clamp-3">
-            멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다
-            모집합니다모집합니다모집합니다모집... 모집...
-          </p>
+          <p className="body-large-r line-clamp-3">{description}</p>
         </div>
         <div className="mb-[10px]">
           <ul className="flex items-center gap-1 mb-[13px]">
@@ -71,7 +75,7 @@ const Postcard = () => {
         </div>
       </div>
       <span className="caption-r text-gray-50">
-        마감일 | <span>2025.08.02</span>
+        마감일 | <span>{formatDate(created_at)}</span>
       </span>
     </div>
   );

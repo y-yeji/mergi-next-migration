@@ -7,7 +7,36 @@ interface PostcardSectionList {
   badgeText: string;
 }
 
-const postList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+const postList = [
+  {
+    id: 1,
+    usernickName: "파파고",
+    description:
+      "멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다 모집합니다모집합니다모집합니다모집...",
+    created_at: 20250813,
+  },
+  {
+    id: 2,
+    usernickName: "파파고",
+    description:
+      "멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다 모집합니다모집합니다모집합니다모집...",
+    created_at: 20250813,
+  },
+  {
+    id: 3,
+    usernickName: "파파고",
+    description:
+      "멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다 모집합니다모집합니다모집합니다모집...",
+    created_at: 20250813,
+  },
+  {
+    id: 4,
+    usernickName: "파파고",
+    description:
+      "멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다 모집합니다모집합니다모집합니다모집...",
+    created_at: 20250813,
+  },
+];
 
 const PostcardSectionList = ({
   title,
@@ -22,7 +51,12 @@ const PostcardSectionList = ({
       </h2>
       <div className="flex gap-[30px]">
         {postList.map((item) => (
-          <Postcard key={item.id} />
+          <Postcard
+            key={item.id}
+            usernickName={item.usernickName}
+            description={item.description}
+            created_at={item.created_at}
+          />
         ))}
       </div>
     </article>

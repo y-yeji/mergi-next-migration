@@ -14,6 +14,8 @@ const selectTriggerVariants = cva(
       variant: {
         short:
           "w-[140px] h-8 py-1 pl-3 pr-[6px] bg-white body-r data-[placeholder]:text-gray-50 rounded-lg input-shadow cursor-pointer outline-color: transparent focus-visible:ring-0 focus-visible:shadow-none, focus-visible:border-transparent",
+        application:
+          "w-[126px] h-[32px] py-[5.5px] pl-3 pr-[6px] bg-white body-r data-[placeholder]:text-gray-50 rounded-lg input-shadow cursor-pointer outline-color: transparent focus-visible:ring-0 focus-visible:shadow-none, focus-visible:border-transparent",
       },
     },
   }
@@ -26,6 +28,8 @@ const selectContentVariants = cva(
       variant: {
         short:
           "w-[140px] max-h-[200px] py-2 pl-1 bg-white rounded-lg input-shadow ",
+        application:
+          "w-[126px]  max-h-[200px] py-2 pl-1 bg-white rounded-lg input-shadow",
       },
     },
   }
@@ -38,12 +42,14 @@ const selectItemVariants = cva(
       variant: {
         short:
           "text-gray-50 hover:text-primary-3 body-r bg-white focus:bg-transparent focus:text-accent-transparent cursor-pointer ",
+        application:
+          "text-gray-50 hover:text-primary-3 body-r bg-white focus:bg-transparent focus:text-accent-transparent cursor-pointer ",
       },
     },
   }
 );
 
-type VariantType = "short" | undefined;
+type VariantType = "short" | "application" | undefined;
 
 function Select({
   ...props
@@ -65,18 +71,16 @@ function SelectValue({
 
 function SelectTrigger({
   className,
-  size = "default",
+
   variant,
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
-  size?: "sm" | "default";
   variant?: VariantType;
 }) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
-      data-size={size}
       className={cn(selectTriggerVariants({ variant }), className)}
       {...props}
     >
