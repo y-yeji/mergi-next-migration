@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,10 +10,37 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Bell, PencilLine } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import Notification from "./Notification";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
+  const [isOpenNotification, setIsOpenNotification] = useState(false);
+  const notiRef = useRef<HTMLDivElement>(null);
+  const bellBtnRef = useRef<HTMLButtonElement>(null);
+
+  const toggleNotification = () => {
+    setIsOpenNotification((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (!isOpenNotification) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        notiRef.current &&
+        !notiRef.current.contains(e.target as Node) &&
+        bellBtnRef.current &&
+        !bellBtnRef.current.contains(e.target as Node)
+      ) {
+        setIsOpenNotification(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpenNotification]);
+
   return (
     <header className="fixed top-0 left-0 z-20 w-full h-[80px] py-[21px] px-10 bg-white">
       <nav className="max-w-[1200px] mx-auto flex items-center justify-between">
@@ -39,8 +68,9 @@ const Header = () => {
         {/* 로그인 */}
         <div>
           <ul className="flex items-center justify-between gap-6">
+            {/* 포스트 작성 */}
             <li>
-              <Link href="/" className="group relative">
+              <Link href="/" className="group relative cursor-pointer">
                 <PencilLine
                   className="text-gray-70 group-hover:text-primary-4 transition-colors"
                   size={24}
@@ -54,20 +84,25 @@ const Header = () => {
                 </span>
               </Link>
             </li>
+            {/* 알림 */}
             <li>
-              <Link href="/" className="group relative">
+              <button
+                ref={bellBtnRef}
+                onClick={toggleNotification}
+                className="group relative cursor-pointer"
+              >
                 <Bell
-                  className="text-gray-70 group-hover:text-primary-4 transition-colors"
+                  className="relative top-1 text-gray-70 group-hover:text-primary-4 transition-colors"
                   size={28}
                 />
                 <span
-                  className="absolute left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
+                  className="absolute z-5 left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
       min-w-[50px] h-5 mt-1 px-0.5 text-center rounded-sm caption-r
       bg-primary-4 text-white transition-opacity items-center justify-center"
                 >
                   알림
                 </span>
-              </Link>
+              </button>
             </li>
             <li>
               <DropdownMenu>
@@ -81,17 +116,21 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   className={cn(
-                    "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible"
+                    "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible "
                   )}
                   style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.11)" }}
                   align="end"
                 >
                   <DropdownMenuItem
-                    className={cn("p-0 pb-[10px] justify-center")}
+                    className={cn(
+                      "p-0 pb-[10px] justify-center hover:text-primary-3"
+                    )}
                   >
                     <Link href="#">마이페이지</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem className={cn("p-0 justify-center")}>
+                  <DropdownMenuItem
+                    className={cn("p-0 justify-center hover:text-primary-3")}
+                  >
                     <button>로그아웃</button>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -100,7 +139,7 @@ const Header = () => {
           </ul>
         </div>
         {/* 로그아웃 */}
-        <div className="items-center">
+        {/* <div className="items-center">
           <Button
             asChild
             className="w-[66px] h-8 px-3 h4-b bg-white border-[1.5px] border-primary-4 rounded-[50px] text-primary-3"
@@ -108,8 +147,14 @@ const Header = () => {
           >
             <Link href="#">로그인</Link>
           </Button>
-        </div>
+        </div> */}
       </nav>
+
+      {isOpenNotification && (
+        <div ref={notiRef} className="absolute right-100 top-[66px]">
+          <Notification onClose={() => setIsOpenNotification(false)} />
+        </div>
+      )}
     </header>
   );
 };

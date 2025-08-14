@@ -169,3 +169,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+  background: #cecece;
+}
