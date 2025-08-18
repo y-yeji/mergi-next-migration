@@ -45,7 +45,7 @@ const Page = () => {
               안녕하세요. 2년차 프론트엔드 개발자입니다 :)
             </p>
             <Button className="w-[101px] h-[30px] py-[6px] rounded-sm px-3 caption-r text-white bg-primary-1 cursor-pointer">
-              <Link href="/" className="flex items-center gap-[6px]">
+              <Link href="/mypage/edit" className="flex items-center gap-[6px]">
                 <Settings width={13} height={13} className="text-white" />
                 프로필 수정
               </Link>
