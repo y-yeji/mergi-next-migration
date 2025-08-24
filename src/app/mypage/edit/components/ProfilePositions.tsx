@@ -1,6 +1,4 @@
 import PositionSmallButton from "@/components/common/PositionSmallButton";
-import { Button } from "@/components/ui/button";
-import { POSITION } from "@/constants/position";
 
 const ProfilePositions = () => {
   return (
