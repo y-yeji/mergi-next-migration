@@ -91,7 +91,12 @@ const Page = () => {
       </section>
       <section className="flex justify-between flex-wrap gap-[30px] mb-12">
         {postList.map((item) => (
-          <Postcard key={item.id} />
+          <Postcard
+            key={item.id}
+            usernickName="파파고"
+            description="멋진프로젝트를 만들어봅시다 주제는 파파고 api를 이용한 어쩌고입니다 모집합니다모집합니다모집합니다모집..."
+            created_at={20250813}
+          />
         ))}
       </section>
       <div className="pb-12">

@@ -31,7 +31,10 @@ const buttonVariants = cva(
         position: "bg-white body-large-m text-gray-80 rounded-lg input-shadow",
         positionActive:
           "bg-secondary-2 body-large-m text-primary-3 border border-parimary-3 rounded-lg input-shadow",
+        short: "w-10 h-10 py-[2px] px-3",
         small: "w-[66px] h-[30px] py-[6px] px-3 rounded-sm",
+        middle: "w-[294px] h-11 py-[10px] rounded-lg",
+        large: "w-[534px] h-[52px] py-[14px] rounded-lg",
         custom: "",
       },
       size: {

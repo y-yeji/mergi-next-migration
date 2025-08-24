@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useState } from "react";
 import ApplicationsTab from "./components/UserApplicationsTab";
 import UserReviewListTab from "./components/UserReviewListTab";
+import PositionBadge from "@/components/common/PositionBadge";
 
 const tabMenuItems = [
   { label: "자기 소개", value: "profileTab" },
@@ -42,13 +43,7 @@ const Page = () => {
               안녕하세요. 2년차 프론트엔드 개발자입니다 :)
             </p>
           </div>
-          <ul className="flex gap-[15px] mb-[10px]">
-            {POSITION.slice(0, 3).map((position) => (
-              <li key={position}>
-                <Badge variant="position">{position}</Badge>
-              </li>
-            ))}
-          </ul>
+          <PositionBadge className="flex gap-[15px] mb-[10px]" />
         </div>
       </section>
       <section className="max-w-[1120px] mx-auto rounded-lg bg-white card-shadow">

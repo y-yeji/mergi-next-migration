@@ -12,6 +12,7 @@ import ProfileTab from "../../components/profile/ProfileTab";
 import MyPostsTab from "./components/MypostsTab";
 import MyApplicationsTab from "./components/MyApplicationsTab";
 import FavoritesTab from "./components/FavoritesTab";
+import PositionBadge from "@/components/common/PositionBadge";
 
 const tabMenuItems = [
   { label: "내 정보", value: "profileTab" },
@@ -51,13 +52,7 @@ const Page = () => {
               </Link>
             </Button>
           </div>
-          <ul className="flex gap-[15px] mb-[10px]">
-            {POSITION.slice(0, 3).map((position) => (
-              <li key={position}>
-                <Badge variant="position">{position}</Badge>
-              </li>
-            ))}
-          </ul>
+          <PositionBadge className="flex gap-[15px] mb-[10px]" />
         </div>
       </section>
       <section className="max-w-[1120px] mx-auto rounded-lg bg-white card-shadow">
