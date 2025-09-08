@@ -2,8 +2,13 @@ import { useState } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Bookmark, ThumbsUp } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const PostHeader = () => {
+  const params = useParams();
+  const { category, id } = params;
+
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -23,7 +28,9 @@ const PostHeader = () => {
             모집합니다 집합니다 모집합니다 모집합니다 모집합니다 모집
           </h2>
           <div className="flex items-center body-m text-gray-50 gap-3">
-            <Button className="cursor-pointer">수정</Button>
+            <Button className="cursor-pointer">
+              <Link href={`/${category}/${id}/edit`}>수정</Link>
+            </Button>
             <Button className="cursor-pointer">삭제</Button>
           </div>
         </div>
