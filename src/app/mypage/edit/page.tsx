@@ -20,14 +20,14 @@ const Page = () => {
         <Button
           className="body-m cursor-pointer"
           variant="small"
-          color="disabled2"
+          tone="disabled2"
         >
           취소
         </Button>
         <Button
           className="body-m cursor-pointer"
           variant="small"
-          color="primary"
+          tone="primary"
         >
           저장
         </Button>

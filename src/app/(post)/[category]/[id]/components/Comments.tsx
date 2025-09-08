@@ -64,7 +64,7 @@ const Comments = () => {
           <Button
             variant="custom"
             className="w-[69px] h-[26px] py-1 px-3 rounded-sm caption-r cursor-pointer"
-            color="primary"
+            tone="primary"
           >
             댓글 등록
           </Button>
