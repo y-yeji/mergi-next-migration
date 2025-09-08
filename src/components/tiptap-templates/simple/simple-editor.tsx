@@ -181,7 +181,7 @@ const MobileToolbarContent = ({
   </>
 );
 
-export function SimpleEditor() {
+export function Editor() {
   const isMobile = useIsMobile();
   const { height } = useWindowSize();
   const [mobileView, setMobileView] = React.useState<

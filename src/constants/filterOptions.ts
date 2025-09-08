@@ -51,3 +51,7 @@ export const APPLICATIONS_STATUS = [
   "수락 대기중",
   "모집 마감",
 ];
+
+export const RECRUITMENT_TYPE = ["스터디", "프로젝트"];
+
+export const CONTACT_METHOD = ["이메일", "전화", "카카오 오픈채팅"];

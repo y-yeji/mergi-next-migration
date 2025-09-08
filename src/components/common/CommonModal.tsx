@@ -17,7 +17,7 @@ interface ModalProps {
   disabled?: boolean;
 }
 
-const CommonModal = ({
+const  CommonModal = ({
   modalButton,
   modalTitle,
   actionButtonText,
