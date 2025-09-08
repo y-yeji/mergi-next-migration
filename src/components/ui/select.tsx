@@ -16,7 +16,12 @@ const selectTriggerVariants = cva(
           "w-[140px] h-8 py-1 pl-3 pr-[6px] bg-white body-r data-[placeholder]:text-gray-50 rounded-lg input-shadow cursor-pointer outline-color: transparent focus-visible:ring-0 focus-visible:shadow-none, focus-visible:border-transparent",
         application:
           "w-[126px] h-[32px] py-[5.5px] pl-3 pr-[6px] bg-white body-r data-[placeholder]:text-gray-50 rounded-lg input-shadow cursor-pointer outline-color: transparent focus-visible:ring-0 focus-visible:shadow-none, focus-visible:border-transparent",
+        long: "w-[516px] h-[46px] py-2 pl-4 pr-2 rounded-lg input-shadow focus-visible:ring-0 border-input:none cursor-pointer data-[placeholder]:text-gray-40 body-r bg-white [_svg]:text-gray-40 ",
+        custom: "",
       },
+    },
+    defaultVariants: {
+      variant: "custom",
     },
   }
 );
@@ -30,7 +35,12 @@ const selectContentVariants = cva(
           "w-[140px] max-h-[200px] py-2 pl-1 bg-white rounded-lg input-shadow ",
         application:
           "w-[126px]  max-h-[200px] py-2 pl-1 bg-white rounded-lg input-shadow",
+        long: "w-[516px] max-h-[200px] py-2 pl-1 bg-white rounded-lg input-shadow ",
+        custom: "",
       },
+    },
+    defaultVariants: {
+      variant: "custom",
     },
   }
 );
@@ -44,12 +54,17 @@ const selectItemVariants = cva(
           "text-gray-50 hover:text-primary-3 body-r bg-white focus:bg-transparent focus:text-accent-transparent cursor-pointer ",
         application:
           "text-gray-50 hover:text-primary-3 body-r bg-white focus:bg-transparent focus:text-accent-transparent cursor-pointer ",
+        long: "text-gray-50 hover:text-primary-3 body-r bg-white focus:bg-transparent focus:text-accent-transparent cursor-pointer ",
+        custom: "",
       },
+    },
+    defaultVariants: {
+      variant: "custom",
     },
   }
 );
 
-type VariantType = "short" | "application" | undefined;
+type VariantType = "short" | "application" | "long" | undefined;
 
 function Select({
   ...props

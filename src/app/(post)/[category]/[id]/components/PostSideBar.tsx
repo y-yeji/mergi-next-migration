@@ -66,7 +66,7 @@ const PostSideBar: React.FC<PostSideBarProps> = ({
           <AlertDialogTrigger asChild>
             <Button
               variant="middle"
-              color="primary"
+              tone="primary"
               className="body-large-r cursor-pointer"
             >
               참여 신청
@@ -99,7 +99,7 @@ const PostSideBar: React.FC<PostSideBarProps> = ({
           <Button
             onClick={onShowApplicantList}
             variant="middle"
-            color="primary"
+            tone="primary"
             className="body-large-r cursor-pointer"
           >
             참여 신청자 목록 조회
@@ -108,7 +108,7 @@ const PostSideBar: React.FC<PostSideBarProps> = ({
           <Button
             onClick={onBack}
             variant="middle"
-            color="primary"
+            tone="primary"
             className="body-large-r cursor-pointer"
           >
             게시글로 돌아가기
@@ -116,7 +116,7 @@ const PostSideBar: React.FC<PostSideBarProps> = ({
         )}
         <Button
           variant="middle"
-          color="secondary"
+          tone="secondary"
           className="body-large-r cursor-pointer"
         >
           모집 마감하기

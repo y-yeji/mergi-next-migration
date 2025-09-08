@@ -108,7 +108,7 @@ const ApplicantList: React.FC<ApplicantListProps> = ({
                     <>
                       <Button
                         variant="short"
-                        color="primary"
+                        tone="primary"
                         className="mr-[6px] caption-r cursor-pointer"
                         onClick={() => handleAcceptedClick(applicantlist.id)}
                       >
@@ -116,7 +116,7 @@ const ApplicantList: React.FC<ApplicantListProps> = ({
                       </Button>
                       <Button
                         variant="short"
-                        color="secondary"
+                        tone="secondary"
                         className="caption-r cursor-pointer"
                       >
                         거절

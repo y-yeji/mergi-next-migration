@@ -88,7 +88,7 @@ const DefaultInfomamtion = () => {
                   />
                   <Button
                     variant="small"
-                    color="primary"
+                    tone="primary"
                     className="absolute top-[7px] left-[573px] caption-r cursor-pointer"
                   >
                     중복확인

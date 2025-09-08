@@ -10,7 +10,7 @@ const ProfileLink = () => {
           <Button
             variant="small"
             size="custom"
-            color="primary"
+            tone="primary"
             className="w-[93px] h-[30px] flex items-center gap-[6px] caption-r cursor-pointer"
           >
             <Plus className="text-white" size={18} /> 링크추가
