@@ -9,6 +9,7 @@ interface PositionSmallButtonProps {
   value: string[];
   onChange: (positions: string[]) => void;
   max?: number;
+  buttonWidth?: string;
 }
 
 const PositionSmallButton = ({
@@ -16,6 +17,7 @@ const PositionSmallButton = ({
   value,
   onChange,
   max,
+  buttonWidth = "w-[99px]",
 }: PositionSmallButtonProps) => {
   const [isSelectedPositions, setIsSelectedPositions] = useState<string[]>([]);
 
@@ -50,7 +52,7 @@ const PositionSmallButton = ({
           key={position}
           variant={value.includes(position) ? "positionActive" : "position"}
           size="custom"
-          className="w-[99px] h-9 cursor-pointer"
+          className={`${buttonWidth} h-9 cursor-pointer`}
           onClick={() => handlePositionSelect(position)}
         >
           {position}

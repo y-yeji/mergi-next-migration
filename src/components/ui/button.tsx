@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -30,7 +30,7 @@ const buttonVariants = cva(
           "w-[76px] h-[33px] border border-gray-30 text-gray-30 bg-white hover:bg-white cursor-pointer",
         position: "bg-white body-large-m text-gray-80 rounded-lg input-shadow",
         positionActive:
-          "bg-secondary-2 body-large-m text-primary-3 border border-parimary-3 rounded-lg input-shadow",
+          "bg-secondary-2 body-large-m text-primary-3 border border-primary-3 rounded-lg input-shadow",
         short: "w-10 h-10 py-[2px] px-3",
         small: "w-[66px] h-[30px] py-[6px] px-3 rounded-sm",
         middle: "w-[294px] h-11 py-[10px] rounded-lg",
