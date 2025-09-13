@@ -52,6 +52,7 @@ const buttonVariants = cva(
           " bg-white hover:bg-gray-20 text-primary-1 border border-solid border-primary-1",
         disabled: "bg-gray-30 text-white",
         disabled2: "bg-white text-gray-30 border border-solid border-gray-30",
+        modal: " bg-[#364861]/80 text-white hover:bg-[#364861]",
         custom: "",
       },
     },
