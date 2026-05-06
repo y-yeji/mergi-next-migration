@@ -116,14 +116,14 @@ const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   className={cn(
-                    "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible "
+                    "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible ",
                   )}
                   style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.11)" }}
                   align="end"
                 >
                   <DropdownMenuItem
                     className={cn(
-                      "p-0 pb-[10px] justify-center hover:text-primary-3"
+                      "p-0 pb-[10px] justify-center hover:text-primary-3",
                     )}
                   >
                     <Link href="#">마이페이지</Link>
