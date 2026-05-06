@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-gen": "supabase gen types typescript --project-id \"fbykztbxszxgvcrjgsav\" --schema public > src/database.types.ts"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
@@ -38,6 +39,8 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@radix-ui/react-visually-hidden": "^1.2.3",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.105.3",
     "@tiptap/extension-highlight": "^3.4.1",
     "@tiptap/extension-horizontal-rule": "^3.4.1",
     "@tiptap/extension-image": "^3.4.1",
@@ -75,6 +78,7 @@
     "recharts": "2.15.4",
     "shadcn": "^3.2.1",
     "sonner": "^2.0.6",
+    "supabase": ">=1.8.1",
     "tailwind-merge": "^3.3.1",
     "vaul": "^1.1.2",
     "zod": "^4.0.14"
