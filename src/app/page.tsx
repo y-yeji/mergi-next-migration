@@ -1,12 +1,11 @@
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
 import MainSmallBanner from "@/components/main/MainSmallBanner";
 import Image from "next/image";
 import PostcardSectionList from "@/components/main/PostcardSectionList";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = await createClient();
 
   return (
     <div className="max-w-[1200px] mx-auto mt-30">

@@ -13,9 +13,16 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Notification from "./Notification";
 import { useEffect, useRef, useState } from "react";
+import AuthModal from "../auth/AuthModal";
+import { useAuthSession } from "@/hooks/useAuthSession";
+import { createClient } from "@/lib/supabase/client";
 
 const Header = () => {
+  const supabase = createClient();
+  const session = useAuthSession();
+  const user = session?.user;
   const [isOpenNotification, setIsOpenNotification] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const notiRef = useRef<HTMLDivElement>(null);
   const bellBtnRef = useRef<HTMLButtonElement>(null);
 
@@ -65,89 +72,86 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {/* 로그인 */}
-        <div>
-          <ul className="flex items-center justify-between gap-6">
-            {/* 포스트 작성 */}
-            <li>
-              <Link href="/" className="group relative cursor-pointer">
-                <PencilLine
-                  className="text-gray-70 group-hover:text-primary-4 transition-colors"
-                  size={24}
-                />
-                <span
-                  className="absolute z-10 left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
+        {user?.id ? (
+          <div>
+            <ul className="flex items-center justify-between gap-6">
+              {/* 포스트 작성 */}
+              <li>
+                <Link href="/" className="group relative cursor-pointer">
+                  <PencilLine
+                    className="text-gray-70 group-hover:text-primary-4 transition-colors"
+                    size={24}
+                  />
+                  <span
+                    className="absolute z-10 left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
       min-w-[50px] h-5 mt-1 px-0.5 text-center rounded-sm caption-r
       bg-primary-4 text-white transition-opacity items-center justify-center"
+                  >
+                    작성하기
+                  </span>
+                </Link>
+              </li>
+              {/* 알림 */}
+              <li>
+                <button
+                  ref={bellBtnRef}
+                  onClick={toggleNotification}
+                  className="group relative cursor-pointer"
                 >
-                  작성하기
-                </span>
-              </Link>
-            </li>
-            {/* 알림 */}
-            <li>
-              <button
-                ref={bellBtnRef}
-                onClick={toggleNotification}
-                className="group relative cursor-pointer"
-              >
-                <Bell
-                  className="relative top-1 text-gray-70 group-hover:text-primary-4 transition-colors"
-                  size={28}
-                />
-                <span
-                  className="absolute z-5 left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
+                  <Bell
+                    className="relative top-1 text-gray-70 group-hover:text-primary-4 transition-colors"
+                    size={28}
+                  />
+                  <span
+                    className="absolute z-5 left-1/2 top-full -translate-x-1/2 hidden group-hover:flex
       min-w-[50px] h-5 mt-1 px-0.5 text-center rounded-sm caption-r
       bg-primary-4 text-white transition-opacity items-center justify-center"
-                >
-                  알림
-                </span>
-              </button>
-            </li>
-            <li>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Avatar className="group size-[40px] cursor-pointer">
-                    <AvatarImage
-                      src="/images/default-user-image.svg"
-                      className="object-cover"
-                    />
-                  </Avatar>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className={cn(
-                    "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible ",
-                  )}
-                  style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.11)" }}
-                  align="end"
-                >
-                  <DropdownMenuItem
+                  >
+                    알림
+                  </span>
+                </button>
+              </li>
+              <li>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Avatar className="group size-[40px] cursor-pointer">
+                      <AvatarImage
+                        src="/images/default-user-image.svg"
+                        className="object-cover"
+                      />
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
                     className={cn(
-                      "p-0 pb-[10px] justify-center hover:text-primary-3",
+                      "min-w-0 h-16 body-r px-4 py-1.5 bg-secondary-3 overflow-visible ",
                     )}
+                    style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.11)" }}
+                    align="end"
                   >
-                    <Link href="#">마이페이지</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    className={cn("p-0 justify-center hover:text-primary-3")}
-                  >
-                    <button>로그아웃</button>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-          </ul>
-        </div>
-        {/* 로그아웃 */}
-        {/* <div className="items-center">
-          <Button
-            asChild
-            className="w-[66px] h-8 px-3 h4-b bg-white border-[1.5px] border-primary-4 rounded-[50px] text-primary-3"
-            style={{ backgroundColor: "transparent" }}
-          >
-            <Link href="#">로그인</Link>
-          </Button>
-        </div> */}
+                    <DropdownMenuItem
+                      className={cn(
+                        "p-0 pb-[10px] justify-center hover:text-primary-3",
+                      )}
+                    >
+                      <Link href="#">마이페이지</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                      className={cn("p-0 justify-center hover:text-primary-3")}
+                    >
+                      <button onClick={() => supabase.auth.signOut()}>
+                        로그아웃
+                      </button>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="items-center">
+            <AuthModal open={isAuthOpen} onOpenChange={setIsAuthOpen} />
+          </div>
+        )}
       </nav>
 
       {isOpenNotification && (
